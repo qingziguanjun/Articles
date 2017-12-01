@@ -1,0 +1,27 @@
+1.第一种方法
+新建目录 directory
+保证目录可以写：
+chmod 777 directory
+给mysql用户权限
+chown -R mysql:mysql directory
+mysqldump -u root -p'123456'  -T directory dbname
+
+导出的文件是建表sql和txt
+
+2.第二种方法
+http://www.mysqltutorial.org/mysql-export-table-to-csv/
+先执行命名：
+SHOW VARIABLES LIKE "secure_file_priv";
+该变量值是mysql可以写入的目录，
+下面导出的文件目录必须是该目录，不然报错：
+1290 - The MySQL server is running with the --secure-file-priv option so it cannot execute this statement
+
+执行SQL导出：
+SELECT * from listapi
+INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/a.csv' 
+FIELDS ENCLOSED BY '"' 
+TERMINATED BY ';' 
+ESCAPED BY '"' 
+LINES TERMINATED BY '\r\n';
+
+结果没有建表语句

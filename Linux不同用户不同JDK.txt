@@ -1,0 +1,28 @@
+1、新建用户：
+sudo  useradd 用户名
+
+有一个文件夹/home/用户名
+
+2.切换用户
+su 用户名
+3.把jdk上传到/home/用户名， 解压
+tar -xvf jdk-8u131-linux-x64.tar.gz
+4.  配置环境变量
+vim .bash_profile 
+5.添加下面
+
+JAVA_HOME=/home/rehl/ELK/jdk1.8.0_131
+CLASSPATH=.:$JAVA_HOME/bin/tools.jar
+PATH=$JAVA_HOME/bin:$PATH
+
+export JAVA_HOME CLASSPATH PATH
+6.编译环境
+. .bash_profile 
+7.成功了，校验一下
+echo $JAVA_HOME
+echo $CLASSPATH
+echo $PATH
+
+8.把jar包还是上传到文件夹 /home/用户名
+
+java命令要在 /home/用户名 这个文件下执行，不然会有问题
