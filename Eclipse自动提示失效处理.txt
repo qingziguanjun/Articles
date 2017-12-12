@@ -1,0 +1,3 @@
+Windows->preferences->java->Editor->Code Assist中Auto-Activetion中的Enable auto-activetion选项要勾选上，这里面有个时间的设定是为提示代码设定的显示时间。你可以根据自己的情况设定。
+
+Window->Preferences->Java->Editor->Content Assist->Advanced   上面的选项卡Select the proposal kinds contained in the ‘default’ content assist list: 中把 Other Java Proposals 选项打上勾就可以了。

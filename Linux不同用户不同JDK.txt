@@ -11,7 +11,7 @@ tar -xvf jdk-8u131-linux-x64.tar.gz
 vim .bash_profile 
 5.添加下面
 
-JAVA_HOME=/home/rehl/ELK/jdk1.8.0_131
+JAVA_HOME=/home/rehl/ELK/jdk1.8.0_151
 CLASSPATH=.:$JAVA_HOME/bin/tools.jar
 PATH=$JAVA_HOME/bin:$PATH
 
