@@ -1,0 +1,15 @@
+How to install sar, sadf, mpstat, iostat, pidstat and sa tools on CentOS / Fedora / RHEL
+
+The following command can be used to install sar, sadf, mpstat, iostat, pidstat and sa tools on RPM based systems like CentOS, Fedora, RHEL (Red Hat Enterprise Linux):
+
+As root type the followiung command (on console / terminal):
+
+yum -y install sysstat
+
+When you are not root but have sudo configured for your account then use:
+
+sudo yum -y install sysstat
+
+This installs the sysstat tools which contains the above mentioned utilities.
+
+iostat is an essential utility to fnd out about IO load on your system and ways to combat it.

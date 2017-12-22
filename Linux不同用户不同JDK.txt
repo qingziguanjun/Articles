@@ -6,12 +6,12 @@ sudo  useradd 用户名
 2.切换用户
 su 用户名
 3.把jdk上传到/home/用户名， 解压
-tar -xvf jdk-8u131-linux-x64.tar.gz
+tar -xvf jdk-8u151-linux-x64.tar.gz
 4.  配置环境变量
 vim .bash_profile 
 5.添加下面
 
-JAVA_HOME=/home/rehl/ELK/jdk1.8.0_151
+JAVA_HOME=/home/dataretention/jdk1.8.0_151
 CLASSPATH=.:$JAVA_HOME/bin/tools.jar
 PATH=$JAVA_HOME/bin:$PATH
 
