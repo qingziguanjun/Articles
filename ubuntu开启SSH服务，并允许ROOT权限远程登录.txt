@@ -1,0 +1,42 @@
+一、检查是否开启SSH服务 
+
+因为Ubuntu默认是不安装SSH服务的，所以在安装之前可以查看目前系统是否安装，通过以下命令：
+
+ ps -e|grep ssh 
+
+输出的结果ssh-agent表示ssh-client启动，sshd表示ssh-server启动。我们是需要安装服务端所以应该看是否有sshd，如果没有则说明没有安装。
+
+二、安装SSH服务
+
+ sudo apt-get install openssh-client 客户端
+
+ sudo apt-get install openssh-server 服务器
+
+　　或者
+
+ apt-get install ssh
+
+三、启动SSH服务 
+
+ sudo /etc/init.d/ssh start
+
+四、修改SSH配置文件 
+
+可以通过SSH配置文件更改包括端口、是否允许root登录等设置，配置文件位置：
+
+ /etc/ssh/sshd_config
+
+ 默认是不允许root远程登录的，可以再配置文件开启。
+
+ sudo vi /etc/ssh/sshd_config
+
+ 找到PermitRootLogin without-password 修改为PermitRootLogin yes
+
+ 五、重启SSH服务
+
+ service ssh restart
+ 
+ 
+ 修改 root 密码
+
+sudo passwd root

@@ -1,0 +1,449 @@
+十二月 22, 2017 5:46:39 下午 org.apache.tomcat.util.digester.SetPropertiesRule begin
+警告: [SetPropertiesRule]{Server/Service/Engine/Host/Context} Setting property 'source' to 'org.eclipse.jst.jee.server:SSMStudy' did not find a matching property.
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/7.0.72
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Sep 14 2016 12:12:26 UTC
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         7.0.72.0
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 7
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            6.1
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             D:\Program Files\Java\jdk1.8.0_144\jre
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.8.0_144-b01
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         D:\internetware\software\tomcat7
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=D:\internetware\software\tomcat7
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dwtp.deploy=D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=D:\internetware\software\tomcat7\endorsed
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dfile.encoding=GBK
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+十二月 22, 2017 5:46:40 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+信息: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+十二月 22, 2017 5:46:40 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-apr-8888"]
+十二月 22, 2017 5:46:41 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-apr-9009"]
+十二月 22, 2017 5:46:41 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 1569 ms
+十二月 22, 2017 5:46:41 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+十二月 22, 2017 5:46:41 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.72
+十二月 22, 2017 5:46:41 下午 org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+信息: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [238] milliseconds.
+十二月 22, 2017 5:46:41 下午 org.apache.catalina.loader.WebappClassLoaderBase validateJarFile
+信息: validateJarFile(D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\lib\javaee-api-7.0.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+十二月 22, 2017 5:46:43 下午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十二月 22, 2017 5:46:43 下午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+十二月 22, 2017 5:46:43 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+[org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization started
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [servletContextInitParams] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [jndiProperties] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+  [org.springframework.web.context.support.StandardServletEnvironment] - Replacing [servletContextInitParams] PropertySource with [servletContextInitParams]
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing Root WebApplicationContext: startup date [Fri Dec 22 17:46:43 CST 2017]; root of context hierarchy
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [org.springframework.beans.factory.xml.DefaultDocumentLoader] - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Loading schema mappings from [META-INF/spring.schemas]
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Loaded schema mappings: {http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, h
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.1.xsd
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Found XML schema [http://www.springframework.org/schema/context/spring-context-3.1.xsd] in classpath: org/springframework/context/config/spring-context-3.1.xsd
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.1.xsd
+  [org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader] - Loading bean definitions
+  [org.springframework.beans.factory.xml.DefaultNamespaceHandlerResolver] - Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/mvc=org.springframework.web.servlet.config.MvcNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/oxm=org.springframework.oxm.config.OxmNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/cache=org.springframework.cache.config.CacheNamespaceHandler, http://mybatis.org/schema/mybatis-spring=org.mybatis.spring.config.NamespaceHandler, http://www.springframework.org/schema/c=org.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Looking for matching resources in directory tree [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\dao] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\mapping] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\model] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\service] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\service\impl] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Resolved location pattern [classpath*:test/**/*.class] to resources [file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller\UserController.class], file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\dao\UserMapper.class], file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\model\User.class], file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\service\impl\UserServiceImpl.class], file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\service\IUserService.class]]
+  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller\UserController.class]
+  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\service\impl\UserServiceImpl.class]
+  [org.springframework.beans.factory.xml.BeanDefinitionParserDelegate] - Neither XML 'id' nor 'name' specified - using generated bean name [org.mybatis.spring.mapper.MapperScannerConfigurer#0]
+  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loaded 11 bean definitions from location pattern [classpath:spring-mybatis.xml]
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean factory for Root WebApplicationContext: org.springframework.beans.factory.support.DefaultListableBeanFactory@4702bc7d: defining beans [userController,userService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,propertyConfigurer,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,transactionManager]; root of factory hierarchy
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Invoking afterPropertiesSet() on bean with name 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Looking for matching resources in directory tree [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\dao]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\dao] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/dao/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Resolved location pattern [classpath*:test/dao/**/*.class] to resources [file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\dao\UserMapper.class]]
+  [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\dao\UserMapper.class]
+  [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'userMapper' and 'test.dao.UserMapper' mapperInterface
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'propertyConfigurer'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'propertyConfigurer'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'propertyConfigurer' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'propertyConfigurer'
+  [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] - Loading properties file from class path resource [jdbc.properties]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@78f82e81]
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@655fff1c]
+  [org.springframework.ui.context.support.UiApplicationContextUtils] - Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@3a4c2eca]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4702bc7d: defining beans [userController,userService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,propertyConfigurer,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,transactionManager,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor,userMapper]; root of factory hierarchy
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'userController'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'userController'
+  [org.springframework.beans.factory.annotation.InjectionMetadata] - Registered injected element on class [test.controller.UserController]: ResourceElement for private test.service.IUserService test.controller.UserController.userService
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'userController' to allow for resolving potential circular references
+  [org.springframework.beans.factory.annotation.InjectionMetadata] - Processing injected method of bean 'userController': ResourceElement for private test.service.IUserService test.controller.UserController.userService
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'userService'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'userService'
+  [org.springframework.beans.factory.annotation.InjectionMetadata] - Registered injected element on class [test.service.impl.UserServiceImpl]: ResourceElement for private test.dao.UserMapper test.service.impl.UserServiceImpl.userDao
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'userService' to allow for resolving potential circular references
+  [org.springframework.beans.factory.annotation.InjectionMetadata] - Processing injected method of bean 'userService': ResourceElement for private test.dao.UserMapper test.service.impl.UserServiceImpl.userDao
+  [org.apache.ibatis.logging.LogFactory] - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'userMapper'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'userMapper'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'userMapper' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'sqlSessionFactory'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'sqlSessionFactory'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'sqlSessionFactory' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'dataSource'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'dataSource'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'dataSource' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'dataSource'
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Looking for matching resources in directory tree [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\mapping]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\mapping] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/mapping/*.xml]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Resolved location pattern [classpath:test/mapping/*.xml] to resources [file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\mapping\UserMapper.xml]]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Invoking afterPropertiesSet() on bean with name 'sqlSessionFactory'
+  [org.mybatis.spring.SqlSessionFactoryBean] - Property 'configLocation' not specified, using default MyBatis Configuration
+  [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\mapping\UserMapper.xml]'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'sqlSessionFactory'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Invoking afterPropertiesSet() on bean with name 'userMapper'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'userMapper'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userMapper'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'userService'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'userController'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userService'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'propertyConfigurer'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'dataSource'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'sqlSessionFactory'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'transactionManager'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'transactionManager'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'transactionManager' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'dataSource'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Invoking afterPropertiesSet() on bean with name 'transactionManager'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'transactionManager'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userMapper'
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@29abb77e]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'lifecycleProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'sqlSessionFactory'
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [servletConfigInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [servletContextInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [jndiProperties]
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain]
+  [org.springframework.jndi.JndiLocatorDelegate] - Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException: Name [spring.liveBeansView.mbeanDomain] is not bound in this Context. Unable to find [spring.liveBeansView.mbeanDomain].
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [spring.liveBeansView.mbeanDomain]
+  [org.springframework.jndi.JndiPropertySource] - JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: Name [spring.liveBeansView.mbeanDomain] is not bound in this Context. Unable to find [spring.liveBeansView.mbeanDomain].. Returning null.
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemProperties]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
+  [org.springframework.web.context.ContextLoader] - Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 1184 ms
+  
+  
+  
+  
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [servletContextInitParams] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [jndiProperties] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+  [org.springframework.web.filter.CharacterEncodingFilter] - Initializing filter 'encodingFilter'
+  [org.springframework.web.filter.CharacterEncodingFilter] - Filter 'encodingFilter' configured successfully
+  
+  
+  [org.springframework.web.servlet.DispatcherServlet] - Initializing servlet 'SpringMVC'
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [servletContextInitParams] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [jndiProperties] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.web.context.support.StandardServletEnvironment] - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment]
+  十二月 22, 2017 5:46:44 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring FrameworkServlet 'SpringMVC'
+[org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'SpringMVC': initialization started
+  [org.springframework.web.servlet.DispatcherServlet] - Servlet with name 'SpringMVC' will try to create custom WebApplicationContext context of class 'org.springframework.web.context.support.XmlWebApplicationContext', using parent context [Root WebApplicationContext: startup date [Fri Dec 22 17:46:43 CST 2017]; root of context hierarchy]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.active' in [servletConfigInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.active' in [servletContextInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.active' in [jndiProperties]
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [java:comp/env/spring.profiles.active]
+  [org.springframework.jndi.JndiLocatorDelegate] - Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException: Name [spring.profiles.active] is not bound in this Context. Unable to find [spring.profiles.active].
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [spring.profiles.active]
+  [org.springframework.jndi.JndiPropertySource] - JNDI lookup for name [spring.profiles.active] threw NamingException with message: Name [spring.profiles.active] is not bound in this Context. Unable to find [spring.profiles.active].. Returning null.
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.active' in [systemProperties]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.active' in [systemEnvironment]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Could not find key 'spring.profiles.active' in any property source. Returning [null]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [servletContextInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [jndiProperties]
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [java:comp/env/spring.profiles.default]
+  [org.springframework.jndi.JndiLocatorDelegate] - Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException: Name [spring.profiles.default] is not bound in this Context. Unable to find [spring.profiles.default].
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [spring.profiles.default]
+  [org.springframework.jndi.JndiPropertySource] - JNDI lookup for name [spring.profiles.default] threw NamingException with message: Name [spring.profiles.default] is not bound in this Context. Unable to find [spring.profiles.default].. Returning null.
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [systemProperties]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [systemEnvironment]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Could not find key 'spring.profiles.default' in any property source. Returning [null]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [servletConfigInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [servletContextInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [jndiProperties]
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [java:comp/env/spring.profiles.default]
+  [org.springframework.jndi.JndiLocatorDelegate] - Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException: Name [spring.profiles.default] is not bound in this Context. Unable to find [spring.profiles.default].
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [spring.profiles.default]
+  [org.springframework.jndi.JndiPropertySource] - JNDI lookup for name [spring.profiles.default] threw NamingException with message: Name [spring.profiles.default] is not bound in this Context. Unable to find [spring.profiles.default].. Returning null.
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [systemProperties]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.profiles.default' in [systemEnvironment]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Could not find key 'spring.profiles.default' in any property source. Returning [null]
+  [org.springframework.web.context.support.StandardServletEnvironment] - Replacing [servletContextInitParams] PropertySource with [servletContextInitParams]
+  [org.springframework.web.context.support.StandardServletEnvironment] - Replacing [servletConfigInitParams] PropertySource with [servletConfigInitParams]
+  
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Fri Dec 22 17:46:44 CST 2017]; parent: Root WebApplicationContext
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [org.springframework.beans.factory.xml.DefaultDocumentLoader] - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Loading schema mappings from [META-INF/spring.schemas]
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Loaded schema mappings: {http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, 
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Found XML schema [http://www.springframework.org/schema/beans/spring-beans-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.1.xsd
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Found XML schema [http://www.springframework.org/schema/context/spring-context-3.1.xsd] in classpath: org/springframework/context/config/spring-context-3.1.xsd
+  [org.springframework.beans.factory.xml.PluggableSchemaResolver] - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.1.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.1.xsd
+  [org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader] - Loading bean definitions
+  [org.springframework.beans.factory.xml.DefaultNamespaceHandlerResolver] - Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/mvc=org.springframework.web.servlet.config.MvcNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/oxm=org.springframework.oxm.config.OxmNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/cache=org.springframework.cache.config.CacheNamespaceHandler, http://mybatis.org/schema/mybatis-spring=org.mybatis.spring.config.NamespaceHandler, http://www.springframework.org/schema/c=org.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemProperties] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Adding [systemEnvironment] PropertySource with lowest search precedence
+  [org.springframework.core.env.StandardEnvironment] - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Looking for matching resources in directory tree [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Searching directory [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller] for files matching pattern [D:/internetware/study/test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/SSMStudy/WEB-INF/classes/test/controller/**/*.class]
+  [org.springframework.core.io.support.PathMatchingResourcePatternResolver] - Resolved location pattern [classpath*:test/controller/**/*.class] to resources [file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller\UserController.class]]
+  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\internetware\study\test\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSMStudy\WEB-INF\classes\test\controller\UserController.class]
+  [org.springframework.beans.factory.xml.BeanDefinitionParserDelegate] - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0]
+  [org.springframework.beans.factory.xml.BeanDefinitionParserDelegate] - Neither XML 'id' nor 'name' specified - using generated bean name [org.springframework.web.servlet.view.InternalResourceViewResolver#0]
+  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loaded 9 bean definitions from location pattern [classpath:spring-mvc.xml]
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Bean factory for WebApplicationContext for namespace 'SpringMVC-servlet': org.springframework.beans.factory.support.DefaultListableBeanFactory@7ddbdfe1: defining beans [userController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,mappingJacksonHttpMessageConverter,org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,multipartResolver]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4702bc7d
+  
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@7a563f21]
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@87e63d6]
+  [org.springframework.ui.context.support.UiApplicationContextUtils] - Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@110070a8]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7ddbdfe1: defining beans [userController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,mappingJacksonHttpMessageConverter,org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,multipartResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4702bc7d
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'userController'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'userController'
+  [org.springframework.beans.factory.annotation.InjectionMetadata] - Registered injected element on class [test.controller.UserController]: ResourceElement for private test.service.IUserService test.controller.UserController.userService
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'userController' to allow for resolving potential circular references
+  [org.springframework.beans.factory.annotation.InjectionMetadata] - Processing injected method of bean 'userController': ResourceElement for private test.service.IUserService test.controller.UserController.userService
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userService'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'userController'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mappingJacksonHttpMessageConverter'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'mappingJacksonHttpMessageConverter'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'mappingJacksonHttpMessageConverter' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'mappingJacksonHttpMessageConverter'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'mappingJacksonHttpMessageConverter'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'multipartResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'multipartResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Eagerly caching bean 'multipartResolver' to allow for resolving potential circular references
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'multipartResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
+  [org.springframework.web.context.support.XmlWebApplicationContext] - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@14ba2ec2]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'lifecycleProcessor'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'multipartResolver'
+  
+  
+  [org.springframework.web.servlet.DispatcherServlet] - Using MultipartResolver [org.springframework.web.multipart.commons.CommonsMultipartResolver@6b162e35]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+  [org.springframework.web.servlet.DispatcherServlet] - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@220e00bc]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+  [org.springframework.web.servlet.DispatcherServlet] - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@4f287111]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Looking for URL mappings in application context: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Fri Dec 22 17:46:44 CST 2017]; parent: Root WebApplicationContext
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'userController': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'mappingJacksonHttpMessageConverter': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.web.servlet.view.InternalResourceViewResolver#0': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'multipartResolver': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'environment': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'systemProperties': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'systemEnvironment': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'servletConfig': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'messageSource': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'applicationEventMulticaster': no URL paths identified
+  [org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping] - Rejected bean name 'lifecycleProcessor': no URL paths identified
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping'
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Looking for URL mappings in application context: WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Fri Dec 22 17:46:44 CST 2017]; parent: Root WebApplicationContext
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userController'
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Mapped URL path [/user/showUser] onto handler 'userController'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userController'
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Mapped URL path [/user/showUser.*] onto handler 'userController'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'userController'
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Mapped URL path [/user/showUser/] onto handler 'userController'
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'mappingJacksonHttpMessageConverter': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.web.servlet.view.InternalResourceViewResolver#0': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'multipartResolver': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'environment': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'systemProperties': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'systemEnvironment': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'servletConfig': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'messageSource': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'applicationEventMulticaster': no URL paths identified
+  [org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping] - Rejected bean name 'lifecycleProcessor': no URL paths identified
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping'
+  [org.springframework.web.servlet.DispatcherServlet] - No HandlerMappings found in servlet 'SpringMVC': using default
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver'
+  [org.springframework.web.servlet.DispatcherServlet] - No HandlerExceptionResolvers found in servlet 'SpringMVC': using default
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+  [org.springframework.web.servlet.DispatcherServlet] - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@67bbdcc5]
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Returning cached instance of singleton bean 'org.springframework.web.servlet.view.InternalResourceViewResolver#0'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+  [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+  [org.springframework.web.servlet.DispatcherServlet] - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@2b862066]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [servletConfigInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [servletContextInitParams]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [jndiProperties]
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain]
+  [org.springframework.jndi.JndiLocatorDelegate] - Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException: Name [spring.liveBeansView.mbeanDomain] is not bound in this Context. Unable to find [spring.liveBeansView.mbeanDomain].
+  [org.springframework.jndi.JndiTemplate] - Looking up JNDI object with name [spring.liveBeansView.mbeanDomain]
+  [org.springframework.jndi.JndiPropertySource] - JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: Name [spring.liveBeansView.mbeanDomain] is not bound in this Context. Unable to find [spring.liveBeansView.mbeanDomain].. Returning null.
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemProperties]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
+  [org.springframework.core.env.PropertySourcesPropertyResolver] - Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
+  [org.springframework.web.servlet.DispatcherServlet] - Published WebApplicationContext of servlet 'SpringMVC' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.SpringMVC]
+  [org.springframework.web.servlet.DispatcherServlet] - FrameworkServlet 'SpringMVC': initialization completed in 558 ms
+  [org.springframework.web.servlet.DispatcherServlet] - Servlet 'SpringMVC' configured successfully
+  十二月 22, 2017 5:46:45 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-apr-8888"]
+十二月 22, 2017 5:46:45 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-apr-9009"]
+十二月 22, 2017 5:46:45 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 4324 ms
