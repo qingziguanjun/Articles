@@ -1,0 +1,1 @@
+bjgjj=20,60,4,/home/user/model/bjgjj,otsu,0;bj=20,60,4,/home/user/model/bjgjj,otsu,0

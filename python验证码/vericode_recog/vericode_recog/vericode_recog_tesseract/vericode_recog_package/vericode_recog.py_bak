@@ -1,0 +1,1050 @@
+#-*- coding:utf-8 -*-
+from PIL import Image
+from PIL import ImageFilter
+import pytesseract
+import os
+import re
+
+"""  /////////////////////北京 ///////////////////////////"""
+# 图像预处理  
+# size[0] : 宽
+def beijing_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	colordata = img.load()
+	for y in xrange(img.size[1]):
+		for x in range(144,150):
+			if (colordata[x,y][0] + colordata[x,y][1] + colordata[x,y][2]) <= 50:
+				colordata[x,y] = (255,255,255,0)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in xrange(img.size[1]):
+		for x in range(0,24): 
+			pixdata[x,y] = 255
+	return img
+
+# 形态学操作 : 膨胀
+def beijing_dilate(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if  pixdata[x-1,y]>=200 or pixdata[x,y-1]>=200  or pixdata[x+1,y]>=200:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 255
+			elif flags[x,y] == False:
+				pixdata[x,y] = 0
+	return img
+
+#处理识别
+def beijing_image_process_recog(imageFile):
+    img = beijing_image_preprocess(imageFile)
+    img = img.filter(ImageFilter.MedianFilter)
+    img = beijing_dilate(img)
+    img = img.filter(ImageFilter.UnsharpMask)
+    text = pytesseract.image_to_string(img)
+    text = re.sub('[^a-zA-Z0-9]',"",text)
+    return text
+
+
+"""  //////////////////////江苏 //////////////////////////"""
+def jiangsu_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	# 上下边界的干扰信息去除
+	pixdata = img.load()
+	for y in range(0,15) :
+		for x in xrange(img.size[0]):
+			pixdata[x,y] = 255
+	for y in range(45,60):
+		for x in xrange(img.size[0]):
+			pixdata[x,y] = 255
+	return img
+
+# 形态学操作 : 膨胀
+def jiangsu_dilate(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if  pixdata[x-1,y]>=200 or pixdata[x,y-1]>=200 or pixdata[x+1,y]>=200:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 255
+			elif flags[x,y] == False:
+				pixdata[x,y] = 0
+	return img
+
+
+# 处理识别
+def jiangsu_image_process_recog(imageFile):
+    img = jiangsu_image_preprocess(imageFile)
+    img = img.filter(ImageFilter.MedianFilter)
+    img = jiangsu_dilate(img)       
+    img = img.filter(ImageFilter.UnsharpMask)
+    text = pytesseract.image_to_string(img)
+    text = re.sub('[^a-zA-Z0-9]',"",text)
+    return text  	
+
+
+"""  ///////////////////////江西 ////////////////////////"""
+# 形态学操作 : 膨胀
+def jiangxi_dilate(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if  pixdata[x-1,y]>=140 or pixdata[x,y-1]>=140:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 255
+			elif flags[x,y] == False:
+				pixdata[x,y] = 0
+	return img
+
+#  腐蚀 
+def jiangxi_erode(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if  pixdata[x,y]==0 or pixdata[x,y-1]==0 or pixdata[x,y+1]==0 or pixdata[x-1,y]==0 or pixdata[x+1,y]==0:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 0
+			elif flags[x,y] == False:
+				pixdata[x,y] = 255
+	return img
+
+# 处理图片，根据不同的操作符，对图片做不同的处理，'加'操作移动的距离更大
+def jiangxi_image_process_recog(imageFile):
+	operator = None
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	# 腐蚀膨胀后是二值图像 增强边缘提高识别率
+	img = jiangxi_dilate(img)
+	img = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
+	img = jiangxi_erode(img)
+	# 载入图像像素
+	pixdata = img.load()
+	height = img.size[1]
+	width = img.size[0]
+	# 确定操作符 通过统计黑色像素的数量确定操作符
+	# 0:减 1:乘 2:加
+	num = 0
+	for y in xrange(height):
+		for x in range(30,50):
+			if pixdata[x,y] == 0:
+				num = num + 1
+	if num < 30:
+		operator = 0
+	# 乘只有一半进入搜索区域
+	elif num >=30 and num <= 150 :
+		operator = 1
+	else:
+		operator = 2
+	# 减 和 乘 做相同操作
+	if operator == 0 or operator == 1:
+		for y in xrange(height):
+			for x in range(20,37):
+				pixdata[x,y] = pixdata[x+43,y]
+		for y in xrange(height):
+			for x in range(37,width):
+				pixdata[x,y] = 255
+	# 加远算，第一数字前面空隙太小，无法识别，挪动位置:第一个数字往右移动，第二个往左边移动
+	elif operator == 2:
+		for y in xrange(height):
+			for x in range(13,25):
+				pixdata[x,y] = pixdata[x-12,y]
+		for y in xrange(height):
+			for x in range(0,13):
+				pixdata[x,y] = 255
+		for y in xrange(height):
+			for x in range(25,41):
+				pixdata[x,y] = pixdata[x+42,y]
+		for y in xrange(height):
+			for x in range(41,width):
+				pixdata[x,y] = 255
+	text = pytesseract.image_to_string(img)
+	# 去除空格
+	x = text.split(' ')
+	text = ''.join(x)
+	# 计算
+	result = 0
+	if len(text) == 2:
+		if operator == 0:
+			result = int(text[0]) - int(text[1])
+		elif operator == 1:
+			result = int(text[0]) * int(text[1])
+		elif operator == 2:
+			result = int(text[0]) + int(text[1])
+	return result
+
+
+""" ////////////////////// /宁夏////////////////////////// """
+# 形态学操作 : 膨胀
+def ningxia_dilate(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if  pixdata[x-1,y]>=100 or pixdata[x,y-1]>=100:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 255
+			elif flags[x,y] == False:
+				pixdata[x,y] = 0
+	return img
+
+#  腐蚀 
+def ningxia_erode(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if  pixdata[x,y-1]==0 or pixdata[x,y+1]==0 or pixdata[x-1,y]==0 or pixdata[x+1,y]==0:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 0
+			elif flags[x,y] == False:
+				pixdata[x,y] = 255
+	return img
+
+# 清楚非数字区域
+def ningxia_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	pixdata = img.load()
+	height = img.size[1]
+	width = img.size[0]
+	for y in xrange(height):
+		for x in xrange(width):
+			if x <= 19 or x >=85 or y <=8 or y >=25 :
+				pixdata[x,y] = 255
+	return img
+
+def ningxia_image_process_recog(imageFile):
+	img = ningxia_image_preprocess(imageFile)
+	img = ningxia_dilate(img)
+	img = ningxia_erode(img)
+	text = pytesseract.image_to_string(img)
+	x = text.split(' ')
+	text = ''.join(x)
+	text = re.sub('l','1',text)
+	# 计算
+	result = 0
+	if len(text) == 3:
+		if(text[1] == 'x'):
+			result = int(text[0]) * int(text[2])
+		elif(text[1] == '+'):
+			result = int(text[0]) + int(text[2])
+	return result
+
+
+""" /////////////////////// 天津 /////////////////////////// """
+# 获取运算符
+def tianjin_get_operator(imageFile):
+	operator = None
+	number = 0
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(19,22):
+		for x in range(49,50):
+			if pixdata[x,y][0] >= 100 and pixdata[x,y][1] <= 100 and pixdata[x,y][2] <= 100:
+				number = number + 1
+	# 0: 乘法  1: 加法
+	if number >= 1 :
+		operator = 0
+	else :
+		operator = 1
+	return operator
+
+# 获取数字 tesseract bug：两个数字离得太远时，无法识别  
+# 做法：将两个数字靠近
+def tianjin_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	height = img.size[1]
+	width = img.size[0]
+
+	# 第一个数字
+	for y in xrange(height):
+		for x in range(0,23):
+			if pixdata[x,y][0] >= 100 and pixdata[x,y][1] <= 100 and pixdata[x,y][2] <= 100:
+				pixdata[x,y] = (0,0,0,0)
+			else :
+				pixdata[x,y] = (255,255,255,0)
+	# 第二个数字
+	for y in range(height):
+		for x in range(71,width):
+			if pixdata[x,y][0] >= 100 and pixdata[x,y][1] <= 100 and pixdata[x,y][2] <= 100:
+				pixdata[x,y] = (0,0,0,0)
+			else :
+				pixdata[x,y] = (255,255,255,0)
+
+	# 剩下的部分
+	for y in range(height):
+		for x in range(23,71):
+			pixdata[x,y] = (255,255,255,0)
+
+	img = img.convert('L')
+	pixdata2 = img.load()
+	# 把第二个数字挪到第一个数字附近
+	for y in xrange(height):
+		for x in range(25,40):
+			pixdata2[x,y] = pixdata2[x+44,y]
+			# print pixdata2[x,y]
+
+	for y in xrange(height):
+		for x in range(40,width):
+			pixdata2[x,y] = 255
+	return img
+
+#  腐蚀 
+def tianjin_erode(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			# pixdata[x,y]==0 or pixdata[x,y-1]==0 or pixdata[x,y+1]==0 or pixdata[x-1,y]==0 or pixdata[x+1,y]==0
+			if  pixdata[x,y-1]==0 or pixdata[x,y+1]==0 or pixdata[x-1,y]==0 or pixdata[x+1,y]==0:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1):
+			if flags[x,y] == True:
+				pixdata[x,y] = 0
+			elif flags[x,y] == False:
+				pixdata[x,y] = 255
+	return img
+
+# 处理识别
+def tianjin_image_process_recog(imageFile):
+	operator = tianjin_get_operator(imageFile)
+	img = tianjin_image_preprocess(imageFile)
+	img = tianjin_erode(img)
+	text = pytesseract.image_to_string(img)
+	# 去除空格
+	x = text.split(' ')
+	text = ''.join(x)
+	# 进行运算
+	result = 0
+	if text != '':
+		if operator == 0:
+			result = int(text[0]) * int(text[1])
+		elif operator == 1:
+			result = int(text[0]) + int(text[1])
+	return result
+
+"""  中高考 数字验证码 /////////////////////////////////  """
+# 移除干扰信息 利用颜色特征
+def zhonggaokao_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y][0] >= 90 and pixdata[x,y][1] >= 90 and pixdata[x,y][2] >= 90:
+				pixdata[x,y] = (255,255,255,0)
+			if x == 0 or y == 0 or x == img.size[0]-1 or y == img.size[1]-1:
+				pixdata[x,y] = (255,255,255,0)
+	return img
+
+def zhonggaokao_image_process_recog(imageFile):
+	img = zhonggaokao_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+
+""" ////////////////社会保障1 -- 北京住房公积金////////////////// """
+def beijinggongjijin_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if x == 0 or y == 0 or x == img.size[0]-1 or y == img.size[1]-1:
+				pixdata[x,y] = (255,255,255,0)
+			if pixdata[x,y][0] <=150 and pixdata[x,y][1] <= 150 and pixdata[x,y][2] <= 150:
+				pixdata[x,y] = (0,0,0,0)
+			else:
+				pixdata[x,y] = (255,255,255,0)
+	return img
+
+def beijinggongjijin_image_process_recog(imageFile):
+	img = beijinggongjijin_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^a-zA-z0-9]',"",text)
+	return text
+
+
+""" ////////////////社会保障1 -- 沧州住房公积金////////////////// """
+# def cangzhougongjijin_image_process_recog:
+
+
+
+""" ////////////////社会保障1 -- 上海社保 ////////////////// """
+def shanghaishebao_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0, img.size[1]):
+		for x in range(0, img.size[0]):
+			if pixdata[x, y][0] <= 230 and pixdata[x, y][1] <= 230 and pixdata[x, y][2] <= 230:
+				pixdata[x, y] = (0, 0, 0, 0)
+			else:
+				pixdata[x, y] = (255, 255, 255, 0)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in range(1, img.size[1] - 1):
+		for x in range(1, img.size[0] - 1):
+			if pixdata[x, y] == 0 and pixdata[x, y - 1] == 255 and pixdata[x, y + 1] == 255:
+				pixdata[x, y] = 255
+	return img
+
+
+
+def shanghaishebao_image_process_recog(imageFile):
+	img = shanghaishebao_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[Oo0]', "Q", text)
+	text = re.sub('[^a-zA-Z0-9]', "", text)
+	return text
+
+
+""" ////////////////社会保障1 -- 无锡公积金 ////////////////// """
+def wuxigongjijin_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^a-zA-Z0-9]',"",text)
+	return text
+
+
+
+
+""" ////////////////社会保障2 -- 苏州社保 ////////////////// """
+def suzhoushebao_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0, img.size[1]):
+		for x in range(0, img.size[0]):
+			if pixdata[x, y][0] <= 150 and pixdata[x, y][1] <= 150 and pixdata[x, y][2] <= 150:
+				pixdata[x, y] = (0, 0, 0, 0)
+			else:
+				pixdata[x, y] = (255, 255, 255, 0)
+	return img
+
+def suzhoushebao_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[Q]', "0", text)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+""" ////////////////社会保障2 -- 济南公积金 ////////////////// """
+def jinangongjijin_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+""" ////////////////社会保障2 -- 济南社保 ////////////////// """
+def jinanshebao_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+""" ////////////////社会保障2 -- 青岛公积金 ////////////////// """
+def qingdaogongjijin_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[as]',"8",text)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+
+"""  //////////////// 社会保障3 -- 南宁社保 //////////////////////////"""
+def nanningshebao_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+"""  /////////////// 社会保障3 -- 南通公积金 ////////////////////////////"""
+def nantonggongjijin_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+"""  /////////////// 社会保障3 -- 临沂公积金 ////////////////////////////"""
+def linyigongjijin_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+"""  /////////////// 社会保障3 -- 三明社保 ////////////////////////////"""
+def sanmingshebao_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y] > 135:
+				pixdata[x,y] = 255
+			else:
+				pixdata[x,y] = 0
+	return img
+
+def sanmingshebao_image_process_recog(imageFile):
+	img = sanmingshebao_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+
+""" //////////////// 社会保障4 -- 长沙公积金 //////////////////////////// """
+def changshagongjijin_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(39,img.size[0]):
+			pixdata[x,y] = (255,255,255,255)
+	return img
+
+def changshagongjijin_image_process_recog(imageFile):
+	img = changshagongjijin_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9+]',"",text)
+	result = 0
+	if len(text) == 3 and text[1] == '+' :
+		result = int(text[0]) + int(text[2])
+	return result
+
+
+"""  /////////////// 社会保障4 --漯河社保 ///////////////////////////// """
+def luoheshebao_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y][0] == 211 and pixdata[x,y][1] ==211 and pixdata[x,y][2] == 211: 
+				pixdata[x,y] = (255,255,255,255)
+			if x == 0 or x == img.size[0] - 1 or y == 0 or y == img.size[1] - 1:
+				pixdata[x,y] = (255,255,255,255)
+	return img
+
+def luoheshebao_image_process_recog(imageFile):
+	img = luoheshebao_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+"""  /////////////// 社会保障5 --杭州公积金 ///////////////////////////// """
+def hangzhougongjijin_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[Ss]', "5", text)
+	text = re.sub('[a]', "8", text)
+	text = re.sub('[oO]', "0", text)
+	text = re.sub('[A]', "4", text)
+	text = re.sub('[^0-9]', "", text)
+	return text
+
+
+"""  //////////////// 交通出行1 -- 张家港驾照扣分 /////////////////////  """
+def zhangjiagangjiazhao_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y][0] == 170 and pixdata[x,y][1] ==170 and pixdata[x,y][2] == 51: 
+				pixdata[x,y] = (255,255,255,255)
+	return img
+
+
+def zhangjiagangjiazhao_image_process_recog(imageFile):
+	img = zhangjiagangjiazhao_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^a-zA-Z]',"",text)
+	return text
+
+
+"""  //////////////// 交通出行1 -- 北京驾照扣分 /////////////////////  """
+# def beijingjiazhao_image_process_recog(imageFile):
+
+
+
+
+
+""" ////////////////北京市环保局--机动车环保标志查询 //////////////"""
+def beijinghuanbaoju_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y] >= 125:
+				pixdata[x,y] = 255
+			else:
+				pixdata[x,y] = 0
+	img = img.filter(ImageFilter.MedianFilter)
+	return img
+
+def beijinghuanbaoju_image_process_recog(imageFile):
+	img = beijinghuanbaoju_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^a-zA-Z0-9]',"",text)
+	return text
+
+
+""" ////////////////  张家港居民健康 //////////////"""
+def zhangjiagangjuminjiankang_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y] > 135:
+				pixdata[x,y] = 255
+			else:
+				pixdata[x,y] = 0
+	return img
+
+def zhangjiagangjuminjiankang_image_process_recog(imageFile):
+	img = zhangjiagangjuminjiankang_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+""" ////////////////  国家卫生计生统计直报系统 //////////////"""
+def guojiaweishengjisheng_dilate(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1): 
+			if pixdata[x-1,y-1] >= 150 and pixdata[x-1,y] >= 150 and pixdata[x-1,y+1] >= 150 \
+			and pixdata[x,y-1] >= 150 and pixdata[x,y+1] >= 150  \
+			and pixdata[x+1,y-1] >= 150 and pixdata[x+1,y] >= 150 and pixdata[x+1,y+1] >= 150:
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1): 
+			if flags[x,y] == True:
+				pixdata[x,y] = 255
+	return img
+
+
+def guojiaweishengjisheng_erode(img):
+	pixdata = img.load()
+	flags = {}
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1): 
+			if pixdata[x, y - 1] == 0 and pixdata[x, y + 1] == 0 :
+				flags[x,y] = True
+			else:
+				flags[x,y] = False
+	for y in range(1,img.size[1]-1):
+		for x in range(1,img.size[0]-1): 
+			if flags[x,y] == True:
+				pixdata[x,y] = 0
+	return img
+
+def guojiaweishengjisheng_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if pixdata[x,y][0] < 100 and  pixdata[x,y][1] < 100 and pixdata[x,y][2] < 100:
+				pixdata[x,y] = (0,0,0,0)
+			else:
+				pixdata[x,y] = (255,255,255,0)
+	img = img.convert('L')
+	img = guojiaweishengjisheng_dilate(img)
+	img = guojiaweishengjisheng_erode(img)
+
+	img = img.filter(ImageFilter.MedianFilter)
+	return img
+
+
+def guojiaweishengjisheng_image_process_recog(imageFile):
+	img = guojiaweishengjisheng_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = text.split(' ')
+	text = ''.join(text)
+	text = re.sub('[^a-zA-Z0-9]',"",text)
+	return text
+
+
+
+""" ////////////////  北京一卡通查询 //////////////"""
+def beijingyikatong_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = text.split(' ')
+	text = ''.join(text)
+	return text
+
+""" ////////////////  商务部业务系统 //////////////"""
+def shangwubuyewuxitong_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	pixdata = img.load()
+	# 第二个字母
+	for y in range(2, 20):
+		for x in range(25, 44):
+			pixdata[x,y] = pixdata[x,y+7]
+	for y in range(20, img.size[1]):
+		for x in range(25, 44):
+			pixdata[x,y] = (240,240,240,0)
+	# 第四个字母
+	for y in range(2, 20):
+		for x in range(69, 90):
+			pixdata[x,y] = pixdata[x,y+7]
+	for y in range(20, img.size[1]):
+		for x in range(69, 90):
+			pixdata[x,y] = (240,240,240,0)
+	img = img.filter(ImageFilter.SHARPEN)
+	return img
+
+
+def shangwubuyewuxitong_image_process_recog(imageFile):
+	img = shangwubuyewuxitong_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = re.sub('[^a-zA-Z0-9]',"",text)
+	return text
+
+""" ////////////////  智联招聘企业用户登录 //////////////"""
+def zhilianzhaopin_image_preprocess(imageFile):
+	piece_height = 170
+	piece_height1 = 85
+	piece_height2 = 45
+	piece_height3 = 40
+	piece_width = 14
+	piece_in_line = 20
+
+	tuple1 = (140, 238, 196, 112, 14, 126, 56, 28, 42, 168,
+			266, 210, 154, 182, 84, 0, 70, 98, 224, 252)
+	tuple2 = (210, 84, 238, 196, 28, 140, 126, 182, 42, 98,
+			56, 154, 266, 168, 252, 14, 0, 224, 112, 70)
+
+	img = Image.open(imageFile)
+	img_copy = Image.new("RGB", (280, 170), "white")
+	pixdata = img.load()
+	pixdata_copy = img_copy.load()
+
+	# 目标第一行
+	for i in range(0, piece_in_line):
+		for y in range(0, piece_height1):
+			j = 0
+			for x in range(i * piece_width, (i + 1) * piece_width):
+				pixdata_copy[x, y] = pixdata[tuple1[i] + j, y]
+				j = j + 1
+	# 目标第二行
+	for i in range(0, piece_in_line):
+		for y in range(piece_height1, piece_height1 + piece_height2):
+			j = 0
+			for x in range(i * piece_width, (i + 1) * piece_width):
+				pixdata_copy[x, y] = pixdata[tuple2[i] + j, y]
+				j = j + 1
+	# 问题
+	for i in range(0, piece_in_line):
+		for y in range(piece_height1 + piece_height2, piece_height):
+			j = 0
+			for x in range(i * piece_width, (i + 1) * piece_width):
+				pixdata_copy[x, y] = pixdata[tuple2[i] + j, y]
+				j = j + 1
+	img_copy = img_copy.convert('L')
+	return img_copy
+
+
+def zhilianzhaopin_image_process_recog(imageFile):
+	location = [[(236,70),(132,100),(57,103)],
+			[(62,78),(162,55),(250,76)],
+			[(110,35),(220,68),(139,84)],
+			[(48,75),(194,35),(127,77)],
+			[(40,107),(68,84),(250,84)]]
+
+	img = zhilianzhaopin_image_preprocess(imageFile)
+	pixdata = img.load()
+	numbers_list = []
+	numbers = []
+	number = 0
+	for m in xrange(5):
+		for n in xrange(3):
+			for y in range(location[m][n][1] - 5,location[m][n][1] + 5):
+				for x in range(location[m][n][0] - 5,location[m][n][0] + 5):
+					if pixdata[x,y] < 20:
+						number = number + 1
+			numbers.append(number)
+			number = 0
+		numbers_list.append(numbers)
+		numbers = []
+	list_len = len(numbers_list)
+	type = None
+	for j in xrange(list_len):
+		if min(numbers_list[j]) != 0:
+			type = j
+	if type == None:
+		sums = []
+		for k in xrange(list_len):
+			sums.append(sum(numbers_list[k]))
+		idx = sums.index(max(sums))
+		type = idx
+	return location[type]
+
+
+
+
+""" ========================= 贵阳贵阳发改委 ===============================  """
+def guiyangfagaiwei_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in range(0, img.size[1]):
+		for x in range(0, img.size[0]):
+			if (x <=30 or x >=70) or (y <= 2 or y >= 19):
+				pixdata[x,y] = 255
+	for y in range(0, img.size[1]):
+		for x in range(0, img.size[0]):
+			if pixdata[x,y] < 192:
+				pixdata[x,y] = 0
+			else:
+				pixdata[x,y] = 255
+	return img
+
+
+
+def guiyangfagaiwei_image_process_recog(imageFile):
+	img = guiyangfagaiwei_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = text.split(' ')
+	text = ''.join(text)
+	text = re.sub('[?]', "P", text)
+	text = re.sub('[0o]', "Q", text)
+	text = re.sub('[5]', "S", text)
+	text = text.replace('12','D').replace('17','D')
+	text = text.replace('[(','K').replace('\(','K')
+	text = text.replace('lv/','W')
+	text = re.sub('[\\\]', "L", text)
+	text = re.sub('[({:]', "C", text)
+	text = re.sub('[z]', "2", text)
+	text = re.sub('[^a-zA-Z0-9]',"",text)
+	return text
+
+
+
+""" ========================= 贵阳节能低碳 ===============================  """
+def guiyangjienengditan_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = text.split(' ')
+	text = ''.join(text)
+	text = re.sub('[^a-zA-Z0-9]',"",text)
+	if text == '':
+		text = 'None'
+	return text
+
+
+""" ========================= 贵阳节水办  ===============================  """
+def guiyangjieshuiban_image_preprocess(imageFile):
+	img = Image.open(imageFile)
+	img = img.convert('L')
+	pixdata = img.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			if (y == 0 or y ==48 or y == 49) or (pixdata[x,y] < 150):
+				pixdata[x,y] = 255
+			else:
+				pixdata[x,y] = 0
+	img_expand = Image.new("L",(180,60),"white")
+	pixdata_expand = img_expand.load()
+	for y in range(0,img.size[1]):
+		for x in range(0,img.size[0]):
+			pixdata_expand[x+9,y+8] = pixdata[x,y]
+	return img_expand
+
+
+def guiyangjieshuiban_image_process_recog(imageFile):
+	img = guiyangjieshuiban_image_preprocess(imageFile)
+	text = pytesseract.image_to_string(img)
+	if text == '':
+		text = 'None'
+	return text
+
+
+"""========================== 中国政府采购网 ========================= """
+def zhongguozhengfucaigouwang_image_process_recog(imageFile):
+	img = Image.open(imageFile)
+	text = pytesseract.image_to_string(img)
+	text = text.split(' ')
+	text = ''.join(text)
+	text = re.sub('[U]',"0",text)
+	text = re.sub('[^0-9]',"",text)
+	return text
+
+
+# 获取验证码
+def vericode_to_string(type,imageFile):
+	# 北京
+	if type == '000':
+		text = beijing_image_process_recog(imageFile)
+	# 江苏
+	elif type == '001':
+		text = jiangsu_image_process_recog(imageFile)
+	# 江西
+	elif type == '002':
+		text = jiangxi_image_process_recog(imageFile)
+	# 宁夏
+	elif type == '003':
+		text = ningxia_image_process_recog(imageFile)
+	# 天津
+	elif type == '004':
+		text = tianjin_image_process_recog(imageFile)
+
+
+	# 中高考
+	elif type == '005':
+		text = zhonggaokao_image_process_recog(imageFile)	
+
+
+	# 社保1 -- 北京住房公积金
+	elif type == '0061':
+		text = beijinggongjijin_image_process_recog(imageFile)
+	# 社保1 -- 沧州住房公积金
+	# elif type == '0062':
+	# 	text = cangzhougongjijin_image_process_recog(imageFile)
+	# 社保1 -- 上海社保
+	if type == '0063':
+		text = shanghaishebao_image_process_recog(imageFile)
+	# 社保1 -- 无锡公积金
+	if type == '0064':
+		text = wuxigongjijin_image_process_recog(imageFile)
+
+
+	# 社保2 -- 苏州社保
+	if type == '0071':
+		text = suzhoushebao_image_process_recog(imageFile)
+	# 社保2 -- 济南公积金
+	if type == '0072':
+		text = jinangongjijin_image_process_recog(imageFile)
+	# 社保2 -- 济南社保
+	if type == '0073':
+		text = jinanshebao_image_process_recog(imageFile)
+	# 社保2 -- 青岛公积金
+	if type == '0074':
+		text = qingdaogongjijin_image_process_recog(imageFile)
+
+
+	# 社保3 -- 南宁社保
+	if type == '0081':
+		text = nanningshebao_image_process_recog(imageFile)
+	# 社保3 -- 南通社保
+	if type == '0082':
+		text = nantonggongjijin_image_process_recog(imageFile)
+	# 社保3 -- 临沂社保
+	if type == '0083':
+		text = linyigongjijin_image_process_recog(imageFile)
+	# 社保3 -- 三明社保
+	if type == '0084':
+		text = sanmingshebao_image_process_recog(imageFile)
+
+
+	# 社保4 -- 长沙公积金
+	if type == '0091':
+		text = changshagongjijin_image_process_recog(imageFile)
+	# # 社保4 --马鞍山社保
+	# if type == '0092':
+	# 	text = maanshanshebao_image_process_recog(imageFile)
+	# 社保4 -- 漯河社保
+	if type == '0093':
+		text = luoheshebao_image_process_recog(imageFile)
+
+
+	# 社保5 -- 杭州公积金
+	if type == '0101':
+		text = hangzhougongjijin_image_process_recog(imageFile)
+
+
+	# 交通出行1 -- 张家港驾照
+	if type == '0111':
+		text = zhangjiagangjiazhao_image_process_recog(imageFile)
+	# 交通出行1 -- 北京驾照扣分
+	# if type == '0112':
+	# 	text = beijingjiazhao_image_process_recog(imageFile)
+
+
+	# 北京环保局
+	if type == '012':
+		text = beijinghuanbaoju_image_process_recog(imageFile)
+	# 张家港居民健康
+	if type == '013':
+		text = zhangjiagangjuminjiankang_image_process_recog(imageFile)
+	# 国家卫生计生统计
+	if type == '014':
+		text = guojiaweishengjisheng_image_process_recog(imageFile)
+	# 北京一卡通
+	if type == '015':
+		text = beijingyikatong_image_process_recog(imageFile)
+	# 商务部业务系统
+	if type == '016':
+		text = shangwubuyewuxitong_image_process_recog(imageFile)
+	# 丰窝科技
+
+	# 智联招聘企业用户登录
+	if type == '018':
+		text = zhilianzhaopin_image_process_recog(imageFile)
+
+	# 贵阳发改委
+	if type == '019':
+		text = guiyangfagaiwei_image_process_recog(imageFile)
+
+	# 贵阳节能低碳
+	if type == '020':
+		text = guiyangjienengditan_image_process_recog(imageFile)
+
+	# 贵阳节水办
+	if type == '021':
+		text = guiyangjieshuiban_image_process_recog(imageFile)
+
+	# 中国政府采购网
+	if type == '022':
+		text = zhongguozhengfucaigouwang_image_process_recog(imageFile)
+	
+	return text
+
